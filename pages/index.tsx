@@ -1,14 +1,20 @@
+import { GetStaticProps } from "next";
 import { useState, useEffect } from "react";
 import Head from "next/head";
 
 import Layout, { siteTitle } from "../components/layout/layout";
 import DigitalClock from "../components/ditigalClock/digital-clock";
 
-const Home = () => {
-  const [time, setTime] = useState(() => new Date().toLocaleString());
+export const getStaticProps: GetStaticProps = async () => {
+  const timeFromServer = new Date().toLocaleString();
+  return { props: { timeFromServer } };
+};
+
+const Home = ({ timeFromServer }) => {
+  const [newTime, setNewTime] = useState(() => timeFromServer || "");
   useEffect(() => {
     setTimeout(() => {
-      setTime(() => new Date().toLocaleString());
+      setNewTime(() => new Date().toLocaleString());
     }, 1000);
   });
 
@@ -17,9 +23,7 @@ const Home = () => {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section>
-        <DigitalClock time={time}></DigitalClock>
-      </section>
+      <section>{newTime && <DigitalClock time={newTime} />}</section>
     </Layout>
   );
 };
