@@ -9,7 +9,10 @@ const Layout = ({ children }) => (
     <Head>
       <meta name="og:title" content={siteTitle} />
     </Head>
-    <header></header>
+    <header>
+      <h1>Clock rendered in the server </h1>
+      <h2>At least the fist time</h2>
+    </header>
     <main>{children}</main>
   </div>
 );
