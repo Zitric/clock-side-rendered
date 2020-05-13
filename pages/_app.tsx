@@ -1,3 +1,5 @@
+import React from "react";
+import { AppProps } from "next/app";
 import "../styles/global.scss";
 
 /**
@@ -16,6 +18,6 @@ if (process.env.NODE_ENV !== "production" && !getIsServerRendered()) {
   axe(React, ReactDOM, 1000);
 }
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
 }
