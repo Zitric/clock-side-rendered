@@ -1,4 +1,4 @@
 export interface LayoutProps {
-  children: any;
+  children: React.ReactNode;
   home?: boolean;
 }

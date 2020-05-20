@@ -1,10 +1,11 @@
+import { FunctionComponent } from "react";
 import Head from "next/head";
 
 import styles from "./layout.module.scss";
 
 export const siteTitle = "app";
 
-const Layout = ({ children }) => (
+const Layout: FunctionComponent = ({ children }) => (
   <div className={styles.container}>
     <Head>
       <meta name="og:title" content={siteTitle} />
